@@ -9,9 +9,10 @@ import SwiftUI
 
 struct ContentView: View {
     
+    // MARK: - Properties
     @StateObject var calculator = Calculator()
     
-    var numbers: [[NumberButtons]] = [
+    private let numbers: [[NumberButtons]] = [
         [.clear, .negative,.percent, .divide],
         [.seven, .eight,.nine, .multiply],
         [.four, .five,.six, .minus],
@@ -19,6 +20,7 @@ struct ContentView: View {
         [.zero, .decimal, .equal]
     ]
     
+    // MARK: - Body
     var body: some View {
         ZStack {
             VStack {
@@ -52,6 +54,7 @@ struct ContentView: View {
     }
 }
 
+// MARK: - Preview
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()

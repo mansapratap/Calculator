@@ -9,11 +9,12 @@ import SwiftUI
 
 class Calculator: ObservableObject {
     
-    @Published var isFinalResult = false
-    @Published var firstNumber: Float = 0.0
+    // MARK: - Properties
     @Published var result = "0"
-    @Published var operate = ""
-    @Published var temp: Float = 0 {
+    private var isFinalResult = false
+    private var firstNumber: Float = 0.0
+    private var operate = ""
+    private var temp: Float = 0 {
         didSet {
             if temp.remainder(dividingBy: 1.0) == 0.0 {
                 result = "\(Int(temp))"
@@ -23,6 +24,7 @@ class Calculator: ObservableObject {
         }
     }
     
+    // MARK: - Calculate Method
     func calculate(number: NumberButtons) {
         switch number {
         case .one,.two,.three,.four,.five,.six,.seven,.eight,.nine,.zero:

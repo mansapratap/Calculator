@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// MARK: - Numbers Enumeration
 enum NumberButtons: String {
     case zero = "0"
     case one = "1"
@@ -28,6 +29,7 @@ enum NumberButtons: String {
     case percent = "%"
     case equal = "="
     
+    // MARK: - Button Color
     var buttonColor: Color {
         switch self {
         case .clear, .negative, .percent: return Color(.lightGray)
@@ -36,6 +38,7 @@ enum NumberButtons: String {
         }
     }
     
+    // MARK: - Button Width
     var buttonWidth: CGFloat {
         switch self {
         case .zero: return (UIScreen.main.bounds.width/2 - 10)
@@ -43,6 +46,7 @@ enum NumberButtons: String {
         }
     }
     
+    // MARK: - Button Height
     var buttonHeight: CGFloat {
         switch self {
         case .zero: return (UIScreen.main.bounds.width/4 - 10)
