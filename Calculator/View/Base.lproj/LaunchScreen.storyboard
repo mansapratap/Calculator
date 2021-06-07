@@ -48,7 +48,7 @@
     <resources>
         <image name="CalculatorIcon" width="166.5" height="166.5"/>
         <namedColor name="AccentColor">
-            <color red="0.38603940606117249" green="0.49010699987411499" blue="0.79695993661880493" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.38600000739097595" green="0.49000000953674316" blue="0.79699999094009399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
