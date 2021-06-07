@@ -18,7 +18,16 @@ struct ContentView: View {
         [.zero, .decimal, .equal]
     ]
     
-    @State var firstNumber = 0.0
+    @State var firstNumber: Float = 0.0
+    @State var temp: Float = 0 {
+        didSet {
+            if temp.remainder(dividingBy: 1.0) == 0.0 {
+                result = "\(Int(temp))"
+            } else {
+                result = "\(temp)"
+            }
+        }
+    }
     @State var result = "0"
     @State var operate = ""
     
@@ -71,7 +80,7 @@ struct ContentView: View {
             case .negative: return result = "\(-(Double(result) ?? 0))"
             case .percent: return result = "\((Double(result) ?? 0)/100)"
             case .divide, .multiply, .minus, .plus:
-                firstNumber = Double(result) ?? 0
+                firstNumber = Float(result) ?? 0
                 result = number.rawValue
                 operate = number.rawValue
             default: return
@@ -83,10 +92,10 @@ struct ContentView: View {
         case .equal:
             isFinalResult = true
             switch operate {
-            case "/": return result = String(format: "%.2f", (firstNumber / (Double(result)!)))
-            case "x": return result = String(format: "%.2f", (firstNumber * (Double(result)!)))
-            case "-": return result = "\(firstNumber - (Double(result)!) )"
-            case "+": return result = "\(firstNumber + (Double(result)!) )"
+            case "/": return temp = firstNumber / (Float(result) ?? 0)
+            case "x": return temp = firstNumber * (Float(result) ?? 0)
+            case "-": return temp = firstNumber - (Float(result) ?? 0)
+            case "+": return temp = firstNumber + (Float(result) ?? 0)
             default: break
             }
         }
