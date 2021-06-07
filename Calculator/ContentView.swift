@@ -37,8 +37,11 @@ struct ContentView: View {
                 Spacer()
                 HStack {
                     Spacer()
-                    Text(result).font(.system(size: 50)).bold().foregroundColor(.white)
+                    Text(result).font(.system(size: 50)).bold().foregroundColor(Color(.label))
                 }.padding()
+                
+                Divider()
+                
                 ForEach(numbers, id: \.self) { row in
                     HStack {
                         ForEach(row, id: \.self) { number in
@@ -59,7 +62,7 @@ struct ContentView: View {
                     }
                 }
             }.padding()
-        }.background(Color(.black)).ignoresSafeArea()
+        }.background(Color("AccentColor")).ignoresSafeArea()
     }
     
     func onTap(number: NumberButtons) {
@@ -132,7 +135,7 @@ enum NumberButtons: String {
     var buttonColor: Color {
         switch self {
         case .clear, .negative, .percent: return Color(.lightGray)
-        case .divide, .multiply, .minus, .plus, .equal: return .orange
+        case .divide, .multiply, .minus, .plus, .equal: return Color(.systemOrange).opacity(0.8)
         default: return Color(.darkGray)
         }
     }
